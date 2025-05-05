@@ -2452,9 +2452,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     snake_length = 1;
     snake_body.push(add([
       sprite("spongebob_right"),
-      scale(0.1),
+      scale(0.05),
       pos(block_size, block_size),
-      area(),
+      area({ width: block_size, height: block_size }),
       "snake"
     ]));
     current_direction = directions.RIGHT;
@@ -2573,9 +2573,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     }
     snake_body.push(add([
       sprite(sprite_name),
-      scale(0.1),
+      scale(0.05),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-      area(),
+      area({ width: block_size, height: block_size }),
       "snake"
     ]));
     if (snake_body.length > snake_length) {
