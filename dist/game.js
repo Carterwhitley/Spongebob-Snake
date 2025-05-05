@@ -2452,7 +2452,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     snake_length = 3;
     for (let i = 1; i <= snake_length; i++) {
       snake_body.push(add([
-        sprite("snake-skin"),
+        sprite("spongebob_right"),
         pos(block_size, block_size * i),
         area(),
         "snake"
