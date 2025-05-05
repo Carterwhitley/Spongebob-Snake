@@ -112,6 +112,7 @@ function respawn_snake(){
   for (let i = 1; i <= snake_length; i++) {
       snake_body.push(add([
           sprite('spongebob_right'),
+          scale(0.3),
           pos(block_size  ,block_size * i),
           area(),
           "snake"
@@ -247,6 +248,7 @@ action(()=> {
     }
     snake_body.push(add([
         sprite(sprite_name),
+        scale(0.3),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
         area(),
         "snake"
