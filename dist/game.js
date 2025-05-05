@@ -2360,7 +2360,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   loadSprite("post-top-right", "sprites/post-top-right.png");
   loadSprite("post-bottom-left", "sprites/post-bottom-left.png");
   loadSprite("post-bottom-right", "sprites/post-bottom-right.png");
-  loadSprite("snake-skin", "sprites/snake-skin.png");
+  loadSprite("spongebob_left", "sprites/spongebob_left.png");
+  loadSprite("spongebob_right", "sprites/spongebob_right.png");
+  loadSprite("spongebob_up", "sprites/spongebob_up.png");
+  loadSprite("spongebob_down", "sprites/spongebob_down.png");
   loadSprite("pizza", "sprites/pizza.png");
   layers([
     "background",
@@ -2554,8 +2557,23 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         break;
     }
     let snake_head = snake_body[snake_body.length - 1];
+    let sprite_name = "snake-skin";
+    switch (current_direction) {
+      case directions.DOWN:
+        sprite_name = "spongebob_down";
+        break;
+      case directions.UP:
+        sprite_name = "spongebob_up";
+        break;
+      case directions.LEFT:
+        sprite_name = "spongebob_left";
+        break;
+      case directions.RIGHT:
+        sprite_name = "spongebob_right";
+        break;
+    }
     snake_body.push(add([
-      sprite("snake-skin"),
+      sprite(sprite_name),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
       area(),
       "snake"
