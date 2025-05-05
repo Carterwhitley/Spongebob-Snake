@@ -111,9 +111,9 @@ function respawn_snake(){
 
   snake_body.push(add([
       sprite('spongebob_right'),
-      scale(0.1),
+      scale(0.05),
       pos(block_size, block_size),
-      area(),
+      area({ width: block_size, height: block_size }),
       "snake"
   ]));
   current_direction = directions.RIGHT;
@@ -246,9 +246,9 @@ action(()=> {
     }
     snake_body.push(add([
         sprite(sprite_name),
-        scale(0.1),
+        scale(0.05),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-        area(),
+        area({ width: block_size, height: block_size }),
         "snake"
     ]));
 
