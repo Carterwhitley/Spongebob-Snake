@@ -2449,16 +2449,14 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       destroy(segment);
     });
     snake_body = [];
-    snake_length = 3;
-    for (let i = 1; i <= snake_length; i++) {
-      snake_body.push(add([
-        sprite("spongebob_right"),
-        scale(0.1),
-        pos(block_size, block_size * i),
-        area(),
-        "snake"
-      ]));
-    }
+    snake_length = 1;
+    snake_body.push(add([
+      sprite("spongebob_right"),
+      scale(0.1),
+      pos(block_size, block_size),
+      area(),
+      "snake"
+    ]));
     current_direction = directions.RIGHT;
   }
   __name(respawn_snake, "respawn_snake");
