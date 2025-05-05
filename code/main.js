@@ -107,17 +107,15 @@ function respawn_snake(){
       destroy(segment);
     });
   snake_body = [];
-  snake_length = 3;
+  snake_length = 1;
 
-  for (let i = 1; i <= snake_length; i++) {
-      snake_body.push(add([
-          sprite('spongebob_right'),
-          scale(0.1),
-          pos(block_size  ,block_size * i),
-          area(),
-          "snake"
-      ]));
-  }
+  snake_body.push(add([
+      sprite('spongebob_right'),
+      scale(0.1),
+      pos(block_size, block_size),
+      area(),
+      "snake"
+  ]));
   current_direction = directions.RIGHT;
 }
 add([
