@@ -2462,7 +2462,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(respawn_snake, "respawn_snake");
   add([
-    text("\nSimple Snake Game\nYou Finish It!", { size: 20, font: "sinko" }),
+    text("\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", { size: 20, font: "sinko" }),
     pos(24, 270),
     fixed()
   ]);
@@ -2573,12 +2573,23 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         break;
     }
     snake_body.push(add([
-      sprite(snake_body.length === 1 ? sprite_name : "snake-skin"),
+      sprite(sprite_name),
       scale(0.05),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
       area({ width: block_size * 0.05, height: block_size * 0.05 }),
       "snake"
     ]));
+    if (snake_body.length > 1) {
+      const prevHead = snake_body[snake_body.length - 2];
+      destroy(prevHead);
+      snake_body[snake_body.length - 2] = add([
+        sprite("snake-skin"),
+        scale(0.05),
+        pos(prevHead.pos.x, prevHead.pos.y),
+        area({ width: block_size * 0.05, height: block_size * 0.05 }),
+        "snake"
+      ]);
+    }
     if (snake_body.length > snake_length) {
       let tail = snake_body.shift();
       destroy(tail);

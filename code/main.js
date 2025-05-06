@@ -121,7 +121,7 @@ function respawn_snake(){
   current_direction = directions.RIGHT;
 }
 add([
-		text("\nSimple Snake Game\nYou Finish It!", {size:20, font:"sinko"},),
+		text("\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {size:20, font:"sinko"},),
     pos(24, 270),
 		fixed(),
     ])
