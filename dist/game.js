@@ -2350,7 +2350,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   var kaboom_default = xn();
 
   // code/main.js
-  kaboom_default({ background: [51, 151, 255] });
+  kaboom_default({
+    background: [51, 151, 255],
+    width: 560,
+    height: 560
+  });
   loadSprite("background", "sprites/background.png");
   loadSprite("fence-top", "sprites/fence-top.png");
   loadSprite("fence-bottom", "sprites/fence-bottom.png");
@@ -2384,7 +2388,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   var run_action = false;
   var snake_length = 3;
   var snake_body = [];
-  var block_size = 20;
+  var block_size = 40;
   var map = addLevel([
     "1tttttttttttt2",
     "l            r ",
@@ -2574,9 +2578,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     }
     snake_body.push(add([
       sprite(sprite_name),
-      scale(0.05),
+      scale(0.1),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-      area({ width: block_size * 0.05, height: block_size * 0.05 }),
+      area({ width: block_size * 0.1, height: block_size * 0.1 }),
       "snake"
     ]));
     if (snake_body.length > 1) {
@@ -2584,9 +2588,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       destroy(prevHead);
       snake_body[snake_body.length - 2] = add([
         sprite("snake-skin"),
-        scale(0.05),
+        scale(0.1),
         pos(prevHead.pos.x, prevHead.pos.y),
-        area({ width: block_size * 0.05, height: block_size * 0.05 }),
+        area({ width: block_size * 0.1, height: block_size * 0.1 }),
         "snake"
       ]);
     }
