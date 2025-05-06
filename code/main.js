@@ -247,12 +247,25 @@ action(()=> {
             break;
     }
     snake_body.push(add([
-        sprite(snake_body.length === 1 ? sprite_name : 'snake-skin'), // Spongebob head, snake skin for tail
+        sprite(sprite_name), // Always use Spongebob for the head
         scale(0.05),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
         area({ width: block_size * 0.05, height: block_size * 0.05 }),
         "snake"
     ]));
+
+    // If there's more than one segment, change the previous head to snake-skin
+    if (snake_body.length > 1) {
+        const prevHead = snake_body[snake_body.length - 2];
+        destroy(prevHead);
+        snake_body[snake_body.length - 2] = add([
+            sprite('snake-skin'),
+            scale(0.05),
+            pos(prevHead.pos.x, prevHead.pos.y),
+            area({ width: block_size * 0.05, height: block_size * 0.05 }),
+            "snake"
+        ]);
+    }
 
     if (snake_body.length > snake_length){
         let tail = snake_body.shift(); // Remove the last of the tail
