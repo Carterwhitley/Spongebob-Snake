@@ -16,7 +16,7 @@ loadSprite("spongebob_right", "sprites/spongebob_right.png");
 loadSprite("spongebob_up", "sprites/spongebob_up.png");
 loadSprite("spongebob_down", "sprites/spongebob_down.png");
 loadSprite("pizza", "sprites/pizza.png");
-loadSprite("yellow-box", "sprites/yellow-box.png"); // Added yellow box sprite
+loadSprite("snake-skin", "sprites/snake-skin.png"); // Use existing snake skin sprite
 
 
 layers([
@@ -247,7 +247,7 @@ action(()=> {
             break;
     }
     snake_body.push(add([
-        sprite(snake_body.length === 1 ? sprite_name : 'snake-skin'), // Spongebob head, yellow boxes for tail
+        sprite(snake_body.length === 1 ? sprite_name : 'snake-skin'), // Spongebob head, snake skin for tail
         scale(0.05),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
         area({ width: block_size * 0.05, height: block_size * 0.05 }),
