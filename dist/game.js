@@ -2365,6 +2365,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   loadSprite("spongebob_up", "sprites/spongebob_up.png");
   loadSprite("spongebob_down", "sprites/spongebob_down.png");
   loadSprite("pizza", "sprites/pizza.png");
+  loadSprite("yellow-box", "sprites/yellow-box.png");
   layers([
     "background",
     "game"
@@ -2556,7 +2557,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         break;
     }
     let snake_head = snake_body[snake_body.length - 1];
-    let sprite_name = "snake-skin";
+    let sprite_name = "spongebob_right";
     switch (current_direction) {
       case directions.DOWN:
         sprite_name = "spongebob_down";
@@ -2572,7 +2573,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         break;
     }
     snake_body.push(add([
-      sprite(sprite_name),
+      sprite(snake_body.length === 1 ? sprite_name : "yellow-box"),
       scale(0.05),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
       area({ width: block_size, height: block_size }),
