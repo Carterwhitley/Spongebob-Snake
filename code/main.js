@@ -30,6 +30,7 @@ layers([
 
 add([
     sprite("background"),
+    scale(2.5),
     layer("background")
 ]);
 
