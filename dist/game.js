@@ -2365,7 +2365,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   loadSprite("spongebob_up", "sprites/spongebob_up.png");
   loadSprite("spongebob_down", "sprites/spongebob_down.png");
   loadSprite("pizza", "sprites/pizza.png");
-  loadSprite("yellow-box", "sprites/yellow-box.png");
+  loadSprite("snake-skin", "sprites/snake-skin.png");
   layers([
     "background",
     "game"
