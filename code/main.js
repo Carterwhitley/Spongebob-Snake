@@ -1,6 +1,10 @@
 import kaboom from "kaboom";
 
-kaboom({background:[51,151,255]});
+kaboom({
+    background:[51,151,255],
+    width: 560,
+    height: 560
+});
 
 loadSprite("background", "sprites/background.png");
 loadSprite("fence-top", "sprites/fence-top.png");
@@ -41,7 +45,7 @@ let run_action = false;
 let snake_length = 3;
 let snake_body = [];
 
-const block_size = 20;
+const block_size = 40;
 
 const map = addLevel([
      "1tttttttttttt2",
@@ -248,9 +252,9 @@ action(()=> {
     }
     snake_body.push(add([
         sprite(sprite_name), // Always use Spongebob for the head
-        scale(0.05),
+        scale(0.1),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-        area({ width: block_size * 0.05, height: block_size * 0.05 }),
+        area({ width: block_size * 0.1, height: block_size * 0.1 }),
         "snake"
     ]));
 
@@ -260,9 +264,9 @@ action(()=> {
         destroy(prevHead);
         snake_body[snake_body.length - 2] = add([
             sprite('snake-skin'),
-            scale(0.05),
+            scale(0.1),
             pos(prevHead.pos.x, prevHead.pos.y),
-            area({ width: block_size * 0.05, height: block_size * 0.05 }),
+            area({ width: block_size * 0.1, height: block_size * 0.1 }),
             "snake"
         ]);
     }
