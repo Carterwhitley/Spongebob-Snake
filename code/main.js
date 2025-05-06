@@ -247,10 +247,10 @@ action(()=> {
             break;
     }
     snake_body.push(add([
-        sprite(snake_body.length === 1 ? sprite_name : 'yellow-box'), // Spongebob head, yellow boxes for tail
+        sprite(snake_body.length === 1 ? sprite_name : 'snake-skin'), // Spongebob head, yellow boxes for tail
         scale(0.05),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-        area({ width: block_size, height: block_size }),
+        area({ width: block_size * 0.05, height: block_size * 0.05 }),
         "snake"
     ]));
 
