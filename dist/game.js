@@ -2573,10 +2573,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         break;
     }
     snake_body.push(add([
-      sprite(snake_body.length === 1 ? sprite_name : "yellow-box"),
+      sprite(snake_body.length === 1 ? sprite_name : "snake-skin"),
       scale(0.05),
       pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-      area({ width: block_size, height: block_size }),
+      area({ width: block_size * 0.05, height: block_size * 0.05 }),
       "snake"
     ]));
     if (snake_body.length > snake_length) {
