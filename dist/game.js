@@ -2536,7 +2536,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       current_direction = directions.RIGHT;
     }
   });
-  var move_delay = 0.2;
+  var move_delay = 0.05;
   var timer = 0;
   action(() => {
     if (!run_action)
@@ -2550,18 +2550,18 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     switch (current_direction) {
       case directions.DOWN:
         move_x = 0;
-        move_y = block_size;
+        move_y = block_size / 4;
         break;
       case directions.UP:
         move_x = 0;
-        move_y = -1 * block_size;
+        move_y = -1 * block_size / 4;
         break;
       case directions.LEFT:
-        move_x = -1 * block_size;
+        move_x = -1 * block_size / 4;
         move_y = 0;
         break;
       case directions.RIGHT:
-        move_x = block_size;
+        move_x = block_size / 4;
         move_y = 0;
         break;
     }
