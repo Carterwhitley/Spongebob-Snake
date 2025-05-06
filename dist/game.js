@@ -2467,7 +2467,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(respawn_snake, "respawn_snake");
   add([
-    text("\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", { size: 20, font: "sinko" }),
+    text("\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {
+      size: 20,
+      font: "sinko",
+      color: rgb(0, 0, 0)
+    }),
     pos(24, 270),
     fixed()
   ]);
