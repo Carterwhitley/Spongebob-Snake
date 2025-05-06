@@ -126,7 +126,11 @@ function respawn_snake(){
   current_direction = directions.RIGHT;
 }
 add([
-		text("\n\n\n\n\n\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {size:20, font:"sinko"},),
+		text("\n\n\n\n\n\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {
+    size: 20, 
+    font: "sinko",
+    color: rgb(0, 0, 0)
+}),
     pos(24, 270),
 		fixed(),
     ])
