@@ -1,9 +1,6 @@
 import kaboom from "kaboom";
 
-kaboom({
-    background:[51,151,255],
-    scale: 2.5
-});
+kaboom({background:[51,151,255]});
 
 loadSprite("background", "sprites/background.png");
 loadSprite("fence-top", "sprites/fence-top.png");
@@ -42,7 +39,7 @@ let run_action = false;
 let snake_length = 3;
 let snake_body = [];
 
-const block_size = 20 * 2.5;
+const block_size = 20;
 
 const map = addLevel([
      "1tttttttttttt2",
