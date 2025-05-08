@@ -257,9 +257,9 @@ action(()=> {
     }
     snake_body.push(add([
         sprite(sprite_name), // Always use Spongebob for the head
-        scale(0.1),
+        scale(0.05),
         pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
-        area({ width: block_size * 0.1, height: block_size * 0.1 }),
+        area({ width: block_size * 0.05, height: block_size * 0.05 }),
         "snake"
     ]));
 
@@ -269,9 +269,9 @@ action(()=> {
         destroy(prevHead);
         snake_body[snake_body.length - 2] = add([
             sprite('snake-skin'),
-            scale(0.1),
+            scale(0.05),
             pos(prevHead.pos.x, prevHead.pos.y),
-            area({ width: block_size * 0.1, height: block_size * 0.1 }),
+            area({ width: block_size * 0.05, height: block_size * 0.05 }),
             "snake"
         ]);
     }
