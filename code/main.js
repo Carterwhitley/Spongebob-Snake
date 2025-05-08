@@ -258,7 +258,7 @@ action(()=> {
     snake_body.push(add([
         sprite(sprite_name), // Always use Spongebob for the head
         scale(0.1),
-        pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y),
+        pos(snake_head.pos.x + move_x * 2, snake_head.pos.y + move_y * 2), // Double the spacing
         area({ width: block_size * 0.1, height: block_size * 0.1 }),
         "snake"
     ]));
