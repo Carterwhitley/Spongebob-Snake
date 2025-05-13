@@ -2351,9 +2351,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
 
   // code/main.js
   kaboom_default({
-    background: [51, 151, 255],
-    width: 560,
-    height: 560
+    background: [0, 0, 0],
+    width: 570,
+    height: 700
   });
   loadSprite("background", "sprites/background.png");
   loadSprite("fence-top", "sprites/fence-top.png");
@@ -2376,7 +2376,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   ], "game");
   add([
     sprite("background"),
-    scale(2.5),
+    scale(1.1),
     layer("background")
   ]);
   var directions = {
@@ -2467,13 +2467,14 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(respawn_snake, "respawn_snake");
   add([
-    text("\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {
+    text("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe jellyfish stole Spongebob's\nsquare pants! Use the arrow\nkeys to guide him around the map\nto catch the jellyfish in his net!", {
       size: 20,
       font: "sinko",
       color: rgb(0, 0, 0)
     }),
     pos(24, 270),
-    fixed()
+    fixed(),
+    layer("background")
   ]);
   var food = null;
   function respawn_food() {
@@ -2487,6 +2488,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     food = add([
       sprite("pizza"),
       pos(new_pos),
+      scale(0.1),
       area(),
       "food"
     ]);
@@ -2593,7 +2595,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       destroy(prevHead);
       snake_body[snake_body.length - 2] = add([
         sprite("snake-skin"),
-        scale(0.1),
+        scale(0.05),
         pos(prevHead.pos.x, prevHead.pos.y),
         area({ width: block_size * 0.1, height: block_size * 0.1 }),
         "snake"

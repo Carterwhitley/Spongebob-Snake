@@ -1,9 +1,9 @@
 import kaboom from "kaboom";
 
 kaboom({
-    background:[51,151,255],
-    width: 560,
-    height: 560
+    background:[0,0,0],
+    width: 570,
+    height: 700
 });
 
 loadSprite("background", "sprites/background.png");
@@ -30,7 +30,7 @@ layers([
 
 add([
     sprite("background"),
-    scale(2.5),
+    scale(1.1),
     layer("background")
 ]);
 
@@ -126,14 +126,15 @@ function respawn_snake(){
   current_direction = directions.RIGHT;
 }
 add([
-		text("\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe jellyfish stole Spongebob's square pants!\nHelp him by guiding him around the map\n to catch the jellyfish!", {
-    size: 20, 
-    font: "sinko",
-    color: rgb(0, 0, 0)
-}),
-    pos(24, 270),
-		fixed(),
-    ])
+        text("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe jellyfish stole Spongebob's\nsquare pants! Use the arrow\nkeys to guide him around the map\nto catch the jellyfish in his net!", {
+            size: 20, 
+            font: "sinko",
+            color: rgb(0, 0, 0)
+        }),
+        pos(24, 270),
+        fixed(),
+        layer("background"), // Change this line to set the layer
+    ]);
 
 let food = null;
 
@@ -149,6 +150,7 @@ function respawn_food(){
     food = add([
                 sprite('pizza'),
                 pos(new_pos),
+                scale(.1),
                 area(),
                 "food"
             ]);
@@ -258,7 +260,7 @@ action(()=> {
     snake_body.push(add([
         sprite(sprite_name), // Always use Spongebob for the head
         scale(0.1),
-        pos(snake_head.pos.x + move_x * 2, snake_head.pos.y + move_y * 2), // Double the spacing
+        pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y), // Double the spacing
         area({ width: block_size * 0.1, height: block_size * 0.1 }),
         "snake"
     ]));
@@ -269,7 +271,7 @@ action(()=> {
         destroy(prevHead);
         snake_body[snake_body.length - 2] = add([
             sprite('snake-skin'),
-            scale(0.1),
+            scale(0.05),
             pos(prevHead.pos.x, prevHead.pos.y),
             area({ width: block_size * 0.1, height: block_size * 0.1 }),
             "snake"
